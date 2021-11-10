@@ -12,6 +12,16 @@ import java.sql.SQLException;
 public class Db {
     private static JSONObject config;
     private static Connection connection;
+    private static final String _PREFIX = "CS181_46_" ;
+
+    private static BookDb bookDb;
+
+    public static BookDb getBookDb() {
+        if (bookDb == null){
+            bookDb = new BookDb(connection, _PREFIX, config);
+        }
+        return bookDb;
+    }
 
     public static Connection getConnection() {return connection;}
 
