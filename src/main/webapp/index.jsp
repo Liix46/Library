@@ -1,12 +1,14 @@
-<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<!DOCTYPE html>
+<%@ page import="com.example.library.utils.Db" %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
-    <title>JSP - Hello World</title>
+    <title>LIBRARY</title>
+    <link rel="stylesheet" href="css/main.css" />
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
+<jsp:include page="fragments/header.jsp" />
+<jsp:include page="fragments/main.jsp" />
+<jsp:include page="fragments/footer.jsp" />
+<%= Db.getConnection()%>
 </body>
 </html>
