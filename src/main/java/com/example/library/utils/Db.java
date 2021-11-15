@@ -1,7 +1,5 @@
 package com.example.library.utils;
 
-
-
 import org.json.simple.JSONObject;
 
 import java.nio.charset.StandardCharsets;
@@ -27,8 +25,6 @@ public class Db {
 
     public static boolean setConnection(JSONObject connectionData) {
         try{
-
-            //String dbms = connectionData.getString("dbms");
             String dbms = connectionData.toJSONString();
             if (dbms.toLowerCase().indexOf("Oracle".toLowerCase()) !=-1){
                 config = connectionData;

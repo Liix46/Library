@@ -19,7 +19,7 @@
 
 <a href="?confirm=true">INSTALL</a>
 
-<% } else if( Db.().installTable() ) { %>
+<% } else if( Db.getBookDb().createTable() ) { %>
 
 <b>CREATED</b>
 <script>

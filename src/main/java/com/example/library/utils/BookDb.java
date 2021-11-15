@@ -1,6 +1,6 @@
 package com.example.library.utils;
 
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -20,8 +20,8 @@ public class BookDb {
 
     public boolean isTableExists(){
         String query;
-        String dbms = _config.getString("dbms");
-        if (dbms.equalsIgnoreCase("Oracle")){
+        String dbms = _config.toJSONString();
+        if (dbms.toLowerCase().indexOf("Oracle".toLowerCase()) !=-1){
             query = "SELECT COUNT(*) " +
                     "FROM USER_TABLES T " +
                     "WHERE T.TABLE_NAME = " +
@@ -47,8 +47,8 @@ public class BookDb {
 
     public boolean createTable(){
         String query;
-        String dbms = _config.getString("dbms");
-        if (dbms.equalsIgnoreCase("Oracle")){
+        String dbms = _config.toJSONString();
+        if (dbms.toLowerCase().indexOf("Oracle".toLowerCase()) !=-1){
             query = "CREATE TABLE " + _PREFIX + "BOOKS (" +
                     "id       RAW(16) DEFAULT SYS_GUID() PRIMARY KEY," +
                     "author   NVARCHAR2(128) NOT NULL," +
